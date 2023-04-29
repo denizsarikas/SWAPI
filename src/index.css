@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: "lato";
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+#bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -9;
+}
+
+.App {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.header {
+  border: 1px solid green;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header-logo {
+  border: 1px solid green;
+  display: flex;
+  margin-left: 3rem;
+  width: 10%;
+}
+
+.header-logo img {
+  width: 300px;
+  height: 75px;
+}
+.navs {
+  border: 1px solid green;
+  display: flex;
+  margin-right: 3rem;
+}
+
+.footer {
+  border: solid 1px green;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer a {
+  border: solid 1px;
+  text-decoration: none;
+  border-radius: 50px;
+  margin: auto;
+  line-height: 300%;
+  padding: 4px;
+  color: white;
+}
+
+.MainCard {
+  /* border: solid 1px red; */
+  display: flex;
+  flex-wrap: wrap;
+}
+.Filter {
+  /* border: solid 3px orange; */
+  margin: 1rem 0;
+  display: flex;
+}
+
+.Starships {
+  display: flex;
+  flex-direction: column;
+}
+
+.Starships div {
+  /* border: blue 1px solid; */
+  justify-content: center;
+  text-align: center;
+}
+
+.button1 {
+  font-family: "Teko", sans-serif;
+  letter-spacing: 1px;
+  background: none;
+  color: #f79f08; /* change text color to green */
+  position: relative;
+  outline: none;
+  border: solid 1px grey;
+  border-radius: 5%;
+  height: 50px;
+  width: 190px;
+  font-size: 14px;
+  transition: 0.01s 0.23s ease-out all;
+  overflow: hidden;
+  margin: auto;
+}
+.button1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #4c588c;
+  z-index: -1;
+  transition: 0.3s ease-in all;
+}
+.button1:after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  top: 5%;
+  height: 90%;
+  width: 5%;
+  background: white;
+  z-index: -1;
+  transition: 0.4s 0.02s ease-in all;
+}
+.button1:hover {
+  cursor: pointer;
+}
+.button1:hover:before {
+  left: 100%;
+  width: 25%;
+}
+.button1:hover:after {
+  left: 100%;
+  width: 70%;
+}
+.button1:hover span {
+  opacity: 1;
+}
+.button1 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; /* make text visible at the start */
+  transition: 0.4s 0.02s ease-in all;
+}
+
+.subfilter {
+  /* border: solid green 3px; */
+  margin: auto;
+}
+
+.star-wars {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 32rem;
+  perspective: 400px;
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 100%;
+  text-align: justify;
+}
+
+.MainPageText {
+  position: relative;
+  top: -100px;
+  transform-origin: 50% 100%;
+  animation: MainPageText 60s linear infinite;
+}
+
+.fade {
+  /* border: 5px solid blue; */
+  position: relative;
+  width: 100%;
+  min-height: 6vh;
+  top: -25px;
+  background-image: linear-gradient(0deg 75% transparent black);
+}
+
+.MainButton {
+  position: absolute;
+  bottom: 4vh;
+  right: 10vh;
+  /* color: rgba(255,255,255,1); */
+  color: white;
+  background: none;
+  border-radius: 10px;
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+  width: 250px;
+  height: 100px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  &.blue {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5),
+      0 0 1.5em rgba(255, 232, 31, 0.7);
+    border: rgba(255, 232, 31, 0.7) solid 2px;
+  }
+
+  &.blue:hover {
+    background-color: rgba(255, 232, 31, 0.7);
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5),
+      0 0 1.5em rgba(255, 232, 31, 0.7);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@keyframes MainPageText {
+  0% {
+    top: 0;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -3500px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+.Test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: #005fa3 3px solid;
+}
+
+.card {
+  flex-basis: calc(30%);
+  height: 450px;
+  width: 310px;
+  background-color: #4c588c;
+  transform: scale(0.7);
+  border-radius: 8px;
+  box-shadow: 0 0 80px 1px #4169b0;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    flex-basis: 100%;
+  }
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.name {
+  margin-top: 3em;
+  font-size: 35px;
+  font-weight: 600;
+  color: #f79f08;
+  /* position: absolute; */
+  /* top: 100px; */
+  letter-spacing: 2px;
+  font-family: "Instrument Serif", serif;
+}
+
+.model {
+  margin-top: 2em;
+  font-size: 25px;
+  color: #feda4a;
+  font-family: "Instrument Serif", serif;
+  /* position: absolute; */
+  /* top: 200px; */
+}
+
+.divider {
+  background-color: #949594;
+  height: 1.5px;
+  width: 50px;
+  /* position: absolute; */
+  /* top: 190px; */
+}
+
+.bio {
+  /* position: absolute; */
+  /* top: 220px; */
+  margin-top: 5em;
+  color: #949594;
+  line-height: 28px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.info button {
+  /* position: absolute; */
+  /* bottom: 30px; */
+  background-color: #f79f08;
+  border: none;
+  font-size: 20px;
+  padding: 13px 25px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.photo {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-size: 100% 100%;
+  border-radius: 8px;
+  transition: 1s;
+}
+
+.card:hover .photo {
+  transform: scale(0.5, 0.35) translateY(-650px);
+  border-radius: 50%;
+}
+
+.links {
+  /* .card a works ass well */
+  position: absolute;
+  left: 0;
+  bottom: -70px;
+  font-size: 25px;
+  color: #fabe58;
+  background-color: #fff;
+  width: 100%;
+  padding: 12px 0;
+  font-weight: 600px;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Teko", sans-serif;
+}
+
+/* buraya kaar ok */
+
+.container {
+  display: flex;
+  height: 80%;
+}
+
+.firstdiv {
+  width: 50%;
+  border: #fabe58 solid 1px;
+  position: relative;
+}
+
+.firstdiv h1{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.firstdiv h3{
+  position: absolute;
+  top: 1.5em;
+  z-index: 1;
+}
+.firstdiv h4{
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+.seconddiv {
+  width: 50%;
+  position: relative;
+  align-items: flex-end;
+  display: flex;
+  margin-left: 1em;
+}
+
+
+.detailsdesign {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  color: black;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+
+.cards {
+  /* border: 2px solid #FCD116; */
+  width: 45%;
+  height: 45%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.6);
+  font-family: "Teko", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10%;
+}
+
+.cards div {
+  margin: auto 1em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: x-large;
+}
+
+
+.seconddiv img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .firstdiv,
+  .seconddiv {
+    width: 100%;
+  }
+
+  .seconddiv {
+    margin: 0;
+    height: 300px;
+  }
+
+  .detailsdesign {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    color: black;
+  }
+
+  .cards div {
+    margin: auto 1em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: medium;
+  }
+
+}
