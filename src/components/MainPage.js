@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-
 const MainPage = () => {
 
   const navigate = useNavigate();
@@ -12,8 +11,7 @@ const MainPage = () => {
 
   return (
     <>
-      <div className="fade">
-      </div>
+      <div className="fade"></div>
       <div className="star-wars">
         <div className="MainPageText">
           <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory

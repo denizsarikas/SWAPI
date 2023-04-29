@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import LoadingGif from '../assets/img/StarWarsLightSaber.gif'
 import image from '../data/Image.json'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
 
@@ -45,8 +46,17 @@ function Card({ filteredStarships }) {
               </div>
               <button onClick={() => handleNavigate(starship)}>See More Details</button>
             </div>
-            <img className='photo' src={image.find(item => item.name === starship.name)?.img}
-              alt={starship.name + 'picture'} />
+            <img
+                className='photo'
+                src={image.find(item => item.name === starship.name)?.img}
+                alt={starship.name + 'picture'}
+              />
+            {/* <LazyLoadImage
+              src={image.find(item => item.name === starship.name)?.img}
+              width={100} height={100}
+              className='photo'
+              alt={starship.name + 'picture'}
+            /> */}
             <Link className='links' to={`/starships/${starship.name}`}>{starship.name}</Link>
           </div>
         ))
@@ -57,3 +67,4 @@ function Card({ filteredStarships }) {
 }
 
 export default Card;
+

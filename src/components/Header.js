@@ -1,21 +1,22 @@
 import React from 'react'
 import Logo from '../assets/img/Star_Wars_Logo.svg'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className='header'>
 
       <div className='header-logo'>
-        <Link to={`/`}>
+        <NavLink to={`/`} activeclassname="active">
           <img src={Logo} className='logo' alt='Star Wars Logo' />
-        </Link>
+        </NavLink>
       </div>
 
-      <Link to={`/starships`}>
-      <div className='navs'>
-        spaceship
+      <div className='header-logo'>
+        <NavLink to={`/starships`} activeclassname="active">
+          <h2>STAR</h2>
+          <h3>SHIPS</h3>
+        </NavLink>
       </div>
-      </Link>
     </div>
   )
 }

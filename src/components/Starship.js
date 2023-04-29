@@ -12,9 +12,8 @@ const Starship = () => {
   const [filteredStarships, setFilteredstarships] = useState(starship)
   const [loading, setLoading] = useState(true);
   const [loadingButton, setLoadingButton] = useState(false);
-  const [count, setCount] = useState(3)
+  const [count, setCount] = useState(6)
   const [page, setPage] = useState(1);
-
 
   useEffect(() => {
     if (starship) {
@@ -23,7 +22,6 @@ const Starship = () => {
     }
   }, [starship, count])
 
-
   const handleClick = () => {
     const searchedShip = starship.filter(starship => starship.model.toLowerCase().includes(deger.toLowerCase()) || starship.name.toLowerCase().includes(deger.toLowerCase()));
     setFilteredstarships(searchedShip)
@@ -31,42 +29,53 @@ const Starship = () => {
   };
 
 
-
   const handleLoadMore = async () => {
 
     try {
       setLoadingButton(true)
       const nextPageUrl = `https://swapi.dev/api/starships/?page=${page + 1}`;
-      const response = await axios.get(nextPageUrl);
-      const newStarships = response.data.results;
-      setStarship([...starship, ...newStarships]);
-      setPage(page + 1);
+      
+      if (page < 4) {
+        const response = await axios.get(nextPageUrl);
+        const newStarships = response.data.results;
+        setStarship([...starship, ...newStarships]);
+        setPage(page + 1);
+      } else {
+        throw new Error('Sayfa numarası 5 veya daha büyük olduğu için daha fazla yükleme yapılamaz.');
+      }
+  
     } catch (error) {
       console.error(error);
     }
+    
     const newCount = count + 3;
     setCount(newCount);
     setFilteredstarships(starship.slice(0, newCount));
     setLoadingButton(false)
   };
+  
 
   return (
     <>
+
       <div className='Filter'>
         <div className='subfilter'>
-          <label>Name /Model
-            <input
-              type='text'
-              placeholder='Enter a name or model'
-              value={deger}
-              onChange={(e) => setDeger(e.target.value)}
-            />
-            <button
-              onClick={handleClick}
-            >
-              Filter
-            </button>
-          </label>
+<label className="name-model">
+  Name / Model
+  <input
+    className="input-field"
+    type="text"
+    placeholder="Enter a name or model"
+    value={deger}
+    onChange={(e) => setDeger(e.target.value)}
+  />
+  <button
+    className="filter-button"
+    onClick={handleClick}
+  >
+    Filter
+  </button>
+</label>
         </div>
       </div>
 
@@ -81,7 +90,7 @@ const Starship = () => {
             {filteredStarships?.length > 0 ? (
               <Card filteredStarships={filteredStarships} />
             ) : (
-              <h2>No results found</h2>
+              <h2 className='bulunamadi'>No result. </h2>
             )}
             {count < starship?.length && (
               <button
