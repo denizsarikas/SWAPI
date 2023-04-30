@@ -38,6 +38,9 @@ const StarshipDetails = () => {
       setFilteredImage(searchedImage);
       setLoading(false);
     }
+    else{
+      navigate(`/`);
+    }
   }, [starship])
 
   //  console.log('filtrelenmiş hali',filteredStarships)
