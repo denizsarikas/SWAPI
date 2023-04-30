@@ -9,13 +9,14 @@ const Starship = () => {
 
   const [deger, setDeger] = useState('')
   const { starship, setStarship } = useStarship()
-  const [filteredStarships, setFilteredstarships] = useState(starship)
+  const [filteredStarships, setFilteredstarships] = useState()
   const [loading, setLoading] = useState(true);
   const [loadingButton, setLoadingButton] = useState(false);
   const [count, setCount] = useState(6)
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
 
   useEffect(() => {
+
     if (starship) {
       setFilteredstarships(starship.slice(0, count))
       setLoading(false);
@@ -24,58 +25,44 @@ const Starship = () => {
 
   const handleClick = () => {
     const searchedShip = starship.filter(starship => starship.model.toLowerCase().includes(deger.toLowerCase()) || starship.name.toLowerCase().includes(deger.toLowerCase()));
-    setFilteredstarships(searchedShip)
+    setFilteredstarships(searchedShip.slice(0, count))
     setDeger('')
   };
 
 
   const handleLoadMore = async () => {
-
-    try {
-      setLoadingButton(true)
-      const nextPageUrl = `https://swapi.dev/api/starships/?page=${page + 1}`;
-      
-      if (page < 4) {
-        const response = await axios.get(nextPageUrl);
-        const newStarships = response.data.results;
-        setStarship([...starship, ...newStarships]);
-        setPage(page + 1);
-      } else {
-        throw new Error('Sayfa numarası 5 veya daha büyük olduğu için daha fazla yükleme yapılamaz.');
-      }
-  
-    } catch (error) {
-      console.error(error);
+    setLoadingButton(true);
+    let newData = [];
+    if (page < 5) {
+      const response = await axios.get(`https://swapi.dev/api/starships/?page=${page}`);
+      newData = response.data.results;
+      setPage(page + 1);
+      setStarship([...starship, ...newData]);
     }
-    
-    const newCount = count + 3;
-    setCount(newCount);
-    setFilteredstarships(starship.slice(0, newCount));
-    setLoadingButton(false)
+    setCount(count + 6);
+    setLoadingButton(false);
   };
-  
 
   return (
     <>
-
       <div className='Filter'>
         <div className='subfilter'>
-<label className="name-model">
-  Name / Model
-  <input
-    className="input-field"
-    type="text"
-    placeholder="Enter a name or model"
-    value={deger}
-    onChange={(e) => setDeger(e.target.value)}
-  />
-  <button
-    className="filter-button"
-    onClick={handleClick}
-  >
-    Filter
-  </button>
-</label>
+          <label className="name-model">
+            Name / Model
+            <input
+              className="input-field"
+              type="text"
+              placeholder="Enter a name or model"
+              value={deger}
+              onChange={(e) => setDeger(e.target.value)}
+            />
+            <button
+              className="filter-button"
+              onClick={handleClick}
+            >
+              Filter
+            </button>
+          </label>
         </div>
       </div>
 
