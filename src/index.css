@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 * {
   margin: 0;
   padding: 0;
 }
-
 
 body {
   font-family: "lato";
@@ -29,7 +28,7 @@ body {
   bottom: 0;
   right: 0;
   z-index: 0;
-  background-image: url('assets/img/Wallpaper.jpg');
+  background-image: url("assets/img/Wallpaper.jpg");
   background-size: cover;
 }
 
@@ -47,16 +46,16 @@ body {
 .header-logo {
   display: flex;
   align-items: center;
-  margin: 0 3em
+  margin: 0 3em;
 }
 
 .header-logo img {
   height: 75px;
 }
 
-.header-logo a{
+.header-logo a {
   text-decoration: none;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   color: #feda4a;
 }
 
@@ -64,7 +63,6 @@ body {
   color: #fff;
   box-shadow: 0 0 10px 0px #fff;
 }
-
 
 .footer {
   margin-top: 1em;
@@ -78,7 +76,7 @@ body {
   margin: auto;
   line-height: 300%;
   padding: 4px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   color: #feda4a;
   transition: all 0.3s ease-in-out;
 }
@@ -306,7 +304,7 @@ body {
   }
 }
 
-.loading{
+.loading {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -405,7 +403,7 @@ body {
   font-family: "Teko", sans-serif;
 }
 
-.bulunamadi{
+.bulunamadi {
   margin: auto;
 }
 
@@ -454,23 +452,22 @@ body {
   position: relative;
 }
 
-.firstdiv h1{
+.firstdiv h1 {
   position: absolute;
   right: 0;
   z-index: 1;
 }
-.firstdiv h3{
+.firstdiv h3 {
   position: absolute;
   right: 0;
   top: 2em;
   z-index: 1;
 }
-.firstdiv h4{
+.firstdiv h4 {
   position: absolute;
   bottom: 0;
   z-index: 1;
 }
-
 
 .seconddiv {
   width: 50%;
@@ -479,7 +476,6 @@ body {
   display: flex;
   margin-left: 1em;
 }
-
 
 .detailsdesign {
   width: 100%;
@@ -512,7 +508,6 @@ body {
   font-size: x-large;
 }
 
-
 .seconddiv img {
   position: absolute;
   top: 0;
@@ -524,7 +519,17 @@ body {
 
 .seconddiv h6 {
   font-size: large;
-    }
+}
+
+.notfoundpage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfoundpage img{
+  width: 50%;
+}
 
 @media (max-width: 768px) {
   .container {
@@ -542,7 +547,7 @@ body {
     height: 300px;
   }
 
-    .firstdiv {
+  .firstdiv {
     margin: 0;
     height: 200px;
   }
@@ -563,16 +568,10 @@ body {
     text-align: center;
     font-size: medium;
   }
-
-
-  .firstdiv h1{
-font-size: medium;
+  .firstdiv h1 {
+    font-size: medium;
   }
-  .firstdiv h3{
+  .firstdiv h3 {
     font-size: small;
   }
-
-  
-  
-
 }
