@@ -11,7 +11,7 @@ const StarshipDetails = () => {
 
 
   const { id } = useParams();
-  const { starship } = useStarship()
+  const { starship, setStarship } = useStarship()
   const [filteredStarships, setFilteredstarships] = useState()
   const [filteredImage, setFilteredImage] = useState()
   const [loading, setLoading] = useState(true);

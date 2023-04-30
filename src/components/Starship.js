@@ -16,6 +16,12 @@ const Starship = () => {
   const [page, setPage] = useState(2);
 
   useEffect(() => {
+    if (starship) {
+      setStarship(starship.slice(0, 10))
+    }
+  }, [])
+
+  useEffect(() => {
 
     if (starship) {
       setFilteredstarships(starship.slice(0, count))
