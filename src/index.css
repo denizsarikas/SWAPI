@@ -525,10 +525,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Teko", sans-serif;
 }
 
 .notfoundpage img{
-  width: 50%;
+  width: 30%;
+}
+
+.notfoundpage div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.notfoundpage h1{
+  margin: auto;
+  font-size: 12em;
 }
 
 @media (max-width: 768px) {
