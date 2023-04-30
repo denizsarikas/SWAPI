@@ -16,6 +16,8 @@ const StarshipDetails = () => {
   const [filteredImage, setFilteredImage] = useState()
   const [loading, setLoading] = useState(true);
 
+  
+
 
   function Model(props) {
     const { scene } = useGLTF(`/assets/models/${id}.glb`);
@@ -28,18 +30,15 @@ const StarshipDetails = () => {
     navigate(`/starships/`);
   }
 
-
   useEffect(() => {
     if (starship) {
       const searchedShip = starship.filter(starship => starship.name.toLowerCase().includes(id.toLowerCase()));
       const searchedImage = image.filter(starship => starship.name.toLowerCase().includes(id.toLowerCase()));
       setFilteredstarships(searchedShip);
       setFilteredImage(searchedImage);
-    }
-    if(filteredStarships){
       setLoading(false);
     }
-  }, [starship, id, filteredStarships])
+  }, [starship])
 
   //  console.log('filtrelenmiş hali',filteredStarships)
   //  console.log('starship details: id', id)
@@ -48,13 +47,13 @@ const StarshipDetails = () => {
   return (
     <>
       {loading ? (
-        <div>
+        <div className='loading'>
           <img src={LoadingGif} alt='light-saber-loading' />
           <p>Loading...</p>
         </div>
       ) : (
         <>
-        
+      
         <div className="container">
 
           <div className='firstdiv'>
@@ -67,7 +66,7 @@ const StarshipDetails = () => {
               <color attach="background" args={["#101010"]} />
               <PresentationControls speed={1.5} zoom={.5} polar={[-0.1, Math.PI / 4]}>
                 <Stage environment={'sunset'}>
-                  <Model scale={0.01} rotation={[Math.PI / 6, Math.PI / 6, 0]}/>
+                  <Model scale={0.01}/>
                 </Stage>
               </PresentationControls>
             </Canvas>
