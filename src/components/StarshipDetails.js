@@ -68,7 +68,7 @@ const StarshipDetails = () => {
             <Canvas dpr={[1, 2]} shadows camera={{ fov: 45 }}>
               <color attach="background" args={["#101010"]} />
               <PresentationControls speed={1.5} zoom={.5} polar={[-0.1, Math.PI / 4]}>
-                <Stage environment={'sunset'}>
+                <Stage>
                   <Model scale={0.01}/>
                 </Stage>
               </PresentationControls>
